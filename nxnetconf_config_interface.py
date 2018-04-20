@@ -5,17 +5,21 @@
 
 from ncclient import manager
 
-hostname = '172.16.30.24'
+hostname = '172.16.30.23'
 username = 'admin'
 password = 'P@ssword'
 
 if __name__ == '__main__':
 
-    with manager.connect(host=hostname, port=22, username=username, password=password,
-                         hostkey_verify=False, device_params={'name': 'nexus'},
-                         allow_agent=False, look_for_keys=False) as device:
+    with manager.connect(host=hostname, 
+                         port=830, 
+                         username=username, 
+                         password=password,
+                         hostkey_verify=False, 
+                         device_params={'name': 'csr'}, 
+                         timeout=90) as device:
 
-        commands = ['config t', 'interface Ethernet1/1', 'switchport', 'switchport mode access', 'description CONNECTION TO SERVER-01']
+        commands = ['config t', 'interface GigabitEthernet1/2', 'ip address 10.1.1.1 255.255.255.0','description CONNECTION TO RTR-02']
         nc_config_reply = device.exec_command(commands)
         print nc_config_reply.xml
 		
