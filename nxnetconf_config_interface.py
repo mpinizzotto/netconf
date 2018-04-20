@@ -11,10 +11,10 @@ password = 'P@ssword'
 
 if __name__ == '__main__':
 
-    with manager.connect(host=hostname, 
+    with manager.connect(host='172.16.30.23', 
                          port=830, 
-                         username=username, 
-                         password=password,
+                         username='admin', 
+                         password='P@ssw0rd',
                          hostkey_verify=False, 
                          device_params={'name': 'csr'}, 
                          timeout=90) as device:
