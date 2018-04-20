@@ -1,5 +1,5 @@
 # IOS XE 
-#Netconf 
+#Using netconf 
 #Configure loopback interface and get reply
 
 #!/usr/bin/env python
@@ -10,12 +10,12 @@ from ncclient import manager
 if __name__ == "__main__":
 
     with manager.connect(host='172.16.30.23', 
-	                port=830, 
-					username='admin', 
-					password='P@ssw0rd',
-	                timeout=90,
-					hostkey_verify=False, 
-					device_params={'name': 'csr'}) as device:
+	                 port=830, 
+			 username='admin', 
+			 password='P@ssw0rd',
+	                 timeout=90,
+                         hostkey_verify=False, 
+                         device_params={'name': 'csr'}) as device:
 
 
         nc_filter = """
