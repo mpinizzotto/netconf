@@ -1,6 +1,6 @@
-# IOS XE 
-#Using netconf 
-#Configure loopback interface and get reply
+  
+#Using nccleint configure loopback interface and get reply
+#Tested on Cisco CSR1000V
 
 #!/usr/bin/env python
 
