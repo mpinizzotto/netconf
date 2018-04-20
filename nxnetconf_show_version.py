@@ -7,7 +7,7 @@ from ncclient import manager
 
 if __name__ == '__main__':
 
-    with manager.connect(host='nxosv', port=22, username='cisco', password='cisco',
+    with manager.connect(host='nxosv-01', port=22, username='admin', password='P@ssw0rd',
                          hostkey_verify=False, device_params={'name': 'nexus'},
                          allow_agent=False, look_for_keys=False) as device:
 
@@ -18,8 +18,8 @@ if __name__ == '__main__':
                       </show>
                       """
         nc_get_reply = device.get(('subtree', get_filter))
-        print 'Response as XML String: '
-        print nc_get_reply.xml
+        #print 'Response as XML String: '
+        #print nc_get_reply.xml
 
         ns_map = {'mod': 'http://www.cisco.com/nxos:1.0:sysmgrcli'}
         xml_rsp_cid = nc_get_reply.data_ele.find('.//mod:chassis_id', ns_map)
